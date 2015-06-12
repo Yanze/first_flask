@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello World !</title>
-  <script src = "{{ url_for('static', filename='js/jquery-2.1.1.min.js')}}"></script>
-  <script src = "{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ url_for('static', filename ='css/bootstrap-theme.min.css')}}">
-</head>
-<body>
+{% extends 'base.html' %}
+{% block main_content %}
+
+<div class="container well text-center">
 <h3>Hello!</h3>
 <h3>Hola!</h3>
 <h3>Ni hao!</h3>
 <h3>Bonjour!</h3>
 <h3>Guten Tag!</h3>
-</body>
-</html>
+<h3>{{ title }}</h3>
+</div>
+
+{% endblock %}
+

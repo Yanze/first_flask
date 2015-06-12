@@ -5,7 +5,7 @@ from flask import render_template
 @app.route("/index")
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title='Dragon', lengend='Gragon Glass')
 
 @app.route("/coucou")
 def coucou():
