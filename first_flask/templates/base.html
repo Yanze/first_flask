@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{lengend}}</title>
+  <title>{{title}}</title>
   <script src = "{{ url_for('static', filename='js/jquery-2.1.1.min.js')}}"></script>
   <script src = "{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ url_for('static', filename ='css/bootstrap-theme.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename ='css/style.css')}}">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -19,23 +20,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Dragon Glass</a>
+      <a class="navbar-brand" href="#">Flask Template</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li {% if active_page=='index' %}class="active"{% endif %}><a  href="/">Home</a></li>
-        <li {% if active_page == 'coucou'%} class="active"{% endif%}><a href="/coucou">Coucou</a></li>
+        <li {% if active_page == 'message'%} class="active"{% endif%}><a href="/message">New Message</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success fade in">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    {{ message }}
+</div>
+{% endfor %}
 {% block main_content %}
 {% endblock %}
+
+
 
 </body>
 </html>
