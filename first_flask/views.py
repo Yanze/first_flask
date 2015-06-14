@@ -18,6 +18,6 @@ def message():
     if form.validate_on_submit(): # if true, execute this code using POST
         print('Post done: {}'.format(form.new_message.data)) # show input value
         messages.append(form.new_message.data)
-        flash('Message sent!')
+        flash('Message received!')
         return redirect(url_for('index'))
     return render_template('message.html', form=form) # if false, execute using GET
